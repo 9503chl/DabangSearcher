@@ -33,8 +33,8 @@
   .updated{color:var(--muted); font-size:15px; margin:0 0 14px}
   .chips{display:flex; flex-wrap:wrap; gap:6px; margin:0 0 14px}
   .chip{background:var(--tag); color:var(--tag-fg); border-radius:999px; padding:5px 11px; font-size:14px; white-space:nowrap}
-  .stats{display:flex; gap:8px; margin:0 0 14px}
-  .stat{flex:1; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 8px; text-align:center}
+  .stats{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 14px}
+  .stat{flex:1 1 72px; min-width:0; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 8px; text-align:center}
   .stat b{display:block; font-size:21px; line-height:1.2}
   .stat span{font-size:13px; color:var(--muted)}
   .note{background:var(--warn-soft); border:1px solid var(--line); border-left:4px solid var(--warn);
@@ -47,6 +47,7 @@
   h2[data-line="7"] .bar{background:var(--l7)}
   h2[data-line="I1"] .bar{background:var(--li1)}
   h2[data-line="I2"] .bar{background:var(--li2)}
+  h2[data-line="I12"] .bar{background:linear-gradient(var(--li1) 50%, var(--li2) 50%)}
   h2 small{color:var(--muted); font-weight:400; font-size:14px}
   .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px; margin:0 0 10px}
   .card .top{display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; margin-bottom:6px}
@@ -407,9 +408,10 @@ window.DABANG = {
 (function(){
   var D = window.DABANG || {listings:[]};
   var LINES = [
-    {key:"1",  name:"1호선(경인선)", desc:"부평"},
-    {key:"I1", name:"인천1호선",     desc:"인천시청 · 간석오거리"},
-    {key:"I2", name:"인천2호선",     desc:"모래내시장 · 만수"}
+    {key:"1",   name:"1호선(경인선)",  short:"1호선",  desc:"부평"},
+    {key:"I1",  name:"인천1호선",      short:"인천1",  desc:"간석오거리"},
+    {key:"I12", name:"인천1·2호선",    short:"인천1·2", desc:"인천시청 (환승)"},
+    {key:"I2",  name:"인천2호선",      short:"인천2",  desc:"모래내시장 · 만수"}
   ];
   var list = D.listings || [];
 
@@ -421,7 +423,7 @@ window.DABANG = {
     var n = list.filter(function(x){return x.line===L.key;}).length;
     var d = document.createElement('div');
     d.className = 'stat';
-    d.innerHTML = '<b>'+n+'</b><span>'+L.name.replace(/\(.*\)/,'')+'</span>';
+    d.innerHTML = '<b>'+n+'</b><span>'+(L.short||L.name.replace(/\(.*\)/,''))+'</span>';
     stats.appendChild(d);
   });
 
