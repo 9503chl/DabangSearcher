@@ -3,92 +3,236 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>부평·남동 1.5룸+ 월세</title>
-<meta name="description" content="1호선·인천1호선·인천2호선 부평·남동권 1.5룸 이상 월세 (보증금 높은 순)">
+<title>여왕 폐하의 간택 목록</title>
+<meta name="description" content="부평·남동권 1.5룸 이상 월세 매물, 보증금 높은 순">
 <style>
   :root{
-    --bg:#f6f7f9; --card:#ffffff; --fg:#16181d; --muted:#666c76; --line:#e4e7ec;
-    --accent:#2f6fed; --accent-soft:#eaf0fe; --warn:#b45309; --warn-soft:#fef3c7;
-    --tag:#eef1f5; --tag-fg:#4b5563; --new:#0f9d58; --new-soft:#e3f5ea;
-    --l1:#0052a4; --l7:#747f00; --li1:#7ca8d9; --li2:#e08600;
+    /* 한지 — 낮의 궁 */
+    --bg:#f5efe0; --bg-2:#efe6d2; --surface:#fffcf4;
+    --ink:#241c14; --ink-soft:#6b5b48; --ink-faint:#74644e;
+    --rule:#d9cbaf; --rule-soft:#e7dcc4;
+    --gold:#75590f;
+    --gold-bright:#8f6f14; --gold-wash:#f2e7c8;
+    --cinnabar:#a6322e; --cinnabar-wash:#f4e0dc;
+    --jade:#2f6b52; --jade-wash:#dcece3;
+    --lapis:#2c4e86;
+    --seal-bg:#a6322e; --seal-fg:#fff6e8;
+    --plaque-bg:#241c14; --plaque-fg:#f2e7c8;
+    --l1:#2c4e86; --li1:#5f86b8; --li2:#9a6a12;
   }
   @media (prefers-color-scheme: dark){
-    :root{
-      --bg:#14161a; --card:#1c1f25; --fg:#e9ecf1; --muted:#9aa2ad; --line:#2c313a;
-      --accent:#7aa2f7; --accent-soft:#22304d; --warn:#fbbf24; --warn-soft:#3a2f14;
-      --tag:#262b33; --tag-fg:#b6bdc7; --new:#4ade80; --new-soft:#173523;
-      --l1:#4d90d8; --l7:#b6c33a; --li1:#9dc4ef; --li2:#f7b750;
+    :root:not([data-theme="light"]){
+      /* 흑칠 — 밤의 궁 */
+      --bg:#12100d; --bg-2:#0d0b09; --surface:#1c1813;
+      --ink:#ede2cb; --ink-soft:#a2957c; --ink-faint:#8f8371;
+      --rule:#3a3227; --rule-soft:#2a2419;
+      --gold:#d8b44a; --gold-bright:#f2dfa2; --gold-wash:#2e2717;
+      --cinnabar:#e0796f; --cinnabar-wash:#33201e;
+      --jade:#6fb693; --jade-wash:#1a2b23;
+      --lapis:#7fa6de;
+      --seal-bg:#8f2b28; --seal-fg:#ffeede;
+      --plaque-bg:#0a0908; --plaque-fg:#e8d49a;
+      --l1:#7fa6de; --li1:#9dc4ef; --li2:#e0b45c;
     }
   }
+  :root[data-theme="dark"]{
+    --bg:#12100d; --bg-2:#0d0b09; --surface:#1c1813;
+    --ink:#ede2cb; --ink-soft:#a2957c; --ink-faint:#8f8371;
+    --rule:#3a3227; --rule-soft:#2a2419;
+    --gold:#d8b44a; --gold-bright:#f2dfa2; --gold-wash:#2e2717;
+    --cinnabar:#e0796f; --cinnabar-wash:#33201e;
+    --jade:#6fb693; --jade-wash:#1a2b23;
+    --lapis:#7fa6de;
+    --seal-bg:#8f2b28; --seal-fg:#ffeede;
+    --plaque-bg:#0a0908; --plaque-fg:#e8d49a;
+    --l1:#7fa6de; --li1:#9dc4ef; --li2:#e0b45c;
+  }
+
   *{box-sizing:border-box}
   html,body{margin:0;padding:0;overflow-x:hidden}
   body{
-    background:var(--bg); color:var(--fg);
-    font:400 16px/1.55 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Segoe UI",sans-serif;
+    background:var(--bg); color:var(--ink);
+    font:400 16px/1.6 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Segoe UI",sans-serif;
     -webkit-text-size-adjust:100%;
-    padding:16px 14px calc(40px + env(safe-area-inset-bottom));
-    max-width:720px; margin:0 auto;
+    padding:0 0 calc(48px + env(safe-area-inset-bottom));
   }
-  h1{font-size:22px; margin:0 0 4px; letter-spacing:-.02em}
-  .updated{color:var(--muted); font-size:15px; margin:0 0 14px}
-  .chips{display:flex; flex-wrap:wrap; gap:6px; margin:0 0 14px}
-  .chip{background:var(--tag); color:var(--tag-fg); border-radius:999px; padding:5px 11px; font-size:14px; white-space:nowrap}
-  .stats{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 14px}
-  .stat{flex:1 1 72px; min-width:0; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 8px; text-align:center}
-  .stat b{display:block; font-size:21px; line-height:1.2}
-  .stat span{font-size:13px; color:var(--muted)}
-  .note{background:var(--warn-soft); border:1px solid var(--line); border-left:4px solid var(--warn);
-        border-radius:10px; padding:12px 13px; margin:0 0 20px; font-size:15px}
-  .note p{margin:0 0 8px} .note p:last-child{margin:0}
-  .note a{color:var(--accent)}
-  h2{font-size:18px; margin:24px 0 10px; display:flex; align-items:center; gap:8px}
-  h2 .bar{width:4px; height:18px; border-radius:2px; background:var(--muted)}
-  h2[data-line="1"] .bar{background:var(--l1)}
-  h2[data-line="7"] .bar{background:var(--l7)}
-  h2[data-line="I1"] .bar{background:var(--li1)}
-  h2[data-line="I2"] .bar{background:var(--li2)}
-  h2[data-line="I12"] .bar{background:linear-gradient(var(--li1) 50%, var(--li2) 50%)}
-  h2 small{color:var(--muted); font-weight:400; font-size:14px}
-  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px; margin:0 0 10px}
-  .card .top{display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; margin-bottom:6px}
-  .st{background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:3px 8px; font-size:14px; font-weight:600; white-space:nowrap}
-  .price{font-size:20px; font-weight:700; letter-spacing:-.02em}
-  .price em{font-style:normal; color:var(--muted); font-size:15px; font-weight:400}
-  .meta{color:var(--muted); font-size:15px; margin:2px 0 8px; word-break:keep-all}
-  .tags{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px}
-  .tag{background:var(--tag); color:var(--tag-fg); border-radius:6px; padding:3px 8px; font-size:13px}
-  .tag.new{background:var(--new-soft); color:var(--new); font-weight:600}
-  .go{display:inline-block; background:var(--accent); color:#fff; text-decoration:none;
-      border-radius:9px; padding:9px 14px; font-size:15px; font-weight:600}
-  .empty{background:var(--card); border:1px dashed var(--line); border-radius:14px;
-         padding:28px 16px; text-align:center; color:var(--muted); font-size:15px}
-  footer{margin-top:28px; color:var(--muted); font-size:13px; text-align:center; line-height:1.7}
+  .wrap{max-width:680px; margin:0 auto; padding:0 16px}
+
+  /* 궁서 계열 — 시스템 세리프만 사용(외부 폰트 없음) */
+  .myeongjo{font-family:"AppleMyungjo","Nanum Myeongjo","Batang",바탕,"Noto Serif KR",serif}
+
+  /* ── 단청 띠 ───────────────────────────── */
+  .dancheong{
+    height:6px;
+    background:repeating-linear-gradient(90deg,
+      var(--cinnabar) 0 14px, var(--jade) 14px 28px,
+      var(--lapis) 28px 42px, var(--gold-bright) 42px 56px);
+    opacity:.85;
+  }
+
+  /* ── 어전 머리 ─────────────────────────── */
+  header{background:var(--plaque-bg); color:var(--plaque-fg); padding:26px 0 22px; text-align:center}
+  header .crest{
+    width:46px; height:46px; margin:0 auto 12px; border-radius:50%;
+    border:1.5px solid var(--gold); display:grid; place-items:center;
+    box-shadow:0 0 0 4px color-mix(in srgb, var(--gold) 18%, transparent);
+  }
+  header .crest span{font-size:20px; line-height:1; color:var(--gold-bright)}
+  h1{
+    font-size:27px; margin:0 0 8px; letter-spacing:.06em; font-weight:400;
+    color:var(--plaque-fg); text-wrap:balance;
+  }
+  header .sub{
+    font-size:13.5px; color:color-mix(in srgb, var(--plaque-fg) 62%, transparent);
+    margin:0; letter-spacing:.03em;
+  }
+  header .updated{
+    display:inline-block; margin-top:14px; padding:4px 14px;
+    border:1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+    border-radius:2px; font-size:12.5px; letter-spacing:.08em;
+    color:var(--gold-bright);
+  }
+
+  /* ── 어람 요약(호패) ───────────────────── */
+  .stats{display:flex; flex-wrap:wrap; gap:8px; margin:22px 0 18px}
+  .stat{
+    flex:1 1 72px; min-width:0; text-align:center;
+    background:var(--surface); border:1px solid var(--rule);
+    border-top:2px solid var(--gold); border-radius:2px; padding:11px 6px;
+  }
+  .stat b{display:block; font-size:23px; line-height:1.15; color:var(--ink); font-variant-numeric:tabular-nums}
+  .stat span{font-size:12px; color:var(--ink-faint); letter-spacing:.04em}
+
+  /* ── 교서 ──────────────────────────────── */
+  .edict{
+    background:var(--surface); border:1px solid var(--rule);
+    border-left:3px solid var(--cinnabar); border-radius:2px;
+    padding:15px 16px; margin:0 0 26px; font-size:14.5px; line-height:1.7;
+  }
+  .edict p{margin:0 0 10px} .edict p:last-child{margin:0}
+  .edict b{color:var(--ink); letter-spacing:.02em}
+  .edict a{color:var(--gold); text-underline-offset:3px}
+  .edict a:hover{color:var(--gold-bright)}
+
+  /* ── 현판(노선 편액) ───────────────────── */
+  .plaque{
+    display:flex; align-items:center; gap:10px;
+    background:var(--plaque-bg); color:var(--plaque-fg);
+    border-radius:3px; padding:11px 14px; margin:30px 0 14px;
+    box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--gold) 40%, transparent),
+               inset 0 0 0 4px var(--plaque-bg),
+               inset 0 0 0 5px color-mix(in srgb, var(--gold) 22%, transparent);
+  }
+  .plaque .bar{width:3px; height:19px; border-radius:1px; background:var(--ink-faint); flex:none}
+  .plaque[data-line="1"] .bar{background:var(--l1)}
+  .plaque[data-line="I1"] .bar{background:var(--li1)}
+  .plaque[data-line="I2"] .bar{background:var(--li2)}
+  .plaque[data-line="I12"] .bar{background:linear-gradient(var(--li1) 50%, var(--li2) 50%)}
+  .plaque h2{font-size:17px; margin:0; font-weight:400; letter-spacing:.05em}
+  .plaque small{
+    margin-left:auto; text-align:right; font-size:12px; letter-spacing:.02em;
+    color:color-mix(in srgb, var(--plaque-fg) 55%, transparent);
+  }
+
+  /* ── 교지(매물 카드) ───────────────────── */
+  .cards{display:flex; flex-direction:column; gap:12px}
+  .card{
+    position:relative; background:var(--surface);
+    border:1px solid var(--rule); border-radius:2px; padding:16px 16px 14px;
+    box-shadow:inset 0 0 0 1px var(--surface), inset 0 0 0 2px var(--rule-soft);
+  }
+  .card::before{
+    content:""; position:absolute; inset:5px; pointer-events:none;
+    border:1px solid color-mix(in srgb, var(--gold) 26%, transparent); border-radius:1px;
+  }
+  .rank{
+    position:absolute; top:-1px; right:12px;
+    background:var(--gold-wash); color:var(--gold);
+    border:1px solid color-mix(in srgb, var(--gold) 38%, transparent); border-top:0;
+    border-radius:0 0 3px 3px; padding:3px 8px 4px;
+    font-size:11.5px; letter-spacing:.1em;
+  }
+  .head{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px; padding-right:62px}
+  .seal{
+    flex:none; background:var(--seal-bg); color:var(--seal-fg);
+    border-radius:3px; padding:5px 9px; font-size:13.5px; letter-spacing:.06em;
+    box-shadow:inset 0 0 0 1px color-mix(in srgb, #fff 26%, transparent);
+  }
+  .price{font-size:25px; line-height:1.1; color:var(--ink); font-variant-numeric:tabular-nums; letter-spacing:.01em}
+  .price .slash{color:var(--gold); margin:0 1px; font-size:20px}
+  .price em{font-style:normal; font-size:13.5px; color:var(--ink-faint); margin-left:4px; letter-spacing:0}
+
+  .spec{
+    display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px 14px; margin:0 0 12px; padding:12px 0 0;
+    border-top:1px solid var(--rule-soft);
+  }
+  .spec>div{display:flex; gap:8px; align-items:baseline; min-width:0}
+  .spec dt{
+    flex:none; width:52px; font-size:11.5px; letter-spacing:.08em;
+    color:var(--ink-faint);
+  }
+  .spec dd{margin:0; font-size:14px; color:var(--ink-soft); min-width:0; word-break:keep-all}
+  .spec dd.strong{color:var(--ink)}
+
+  .tags{display:flex; flex-wrap:wrap; gap:5px; margin-bottom:13px}
+  .tags:empty{display:none}
+  .tag{
+    border:1px solid var(--rule); border-radius:2px; padding:2.5px 8px;
+    font-size:11.5px; letter-spacing:.04em; color:var(--ink-faint); background:var(--bg-2);
+  }
+  .tag.warn{color:var(--cinnabar); background:var(--cinnabar-wash); border-color:color-mix(in srgb, var(--cinnabar) 32%, transparent)}
+  .tag.good{color:var(--jade); background:var(--jade-wash); border-color:color-mix(in srgb, var(--jade) 32%, transparent)}
+
+  .go{
+    display:block; text-align:center; text-decoration:none;
+    background:var(--plaque-bg); color:var(--plaque-fg);
+    border-radius:2px; padding:11px 14px; font-size:14px; letter-spacing:.08em;
+    box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--gold) 42%, transparent);
+    transition:box-shadow .15s ease, color .15s ease;
+  }
+  .go:hover{color:var(--gold-bright); box-shadow:inset 0 0 0 1px var(--gold)}
+  .go:focus-visible, .edict a:focus-visible{outline:2px solid var(--gold); outline-offset:2px}
+
+  .empty{
+    background:var(--surface); border:1px dashed var(--rule); border-radius:2px;
+    padding:26px 16px; text-align:center; color:var(--ink-faint); font-size:14px;
+  }
+
+  footer{
+    margin-top:34px; padding-top:20px; border-top:1px solid var(--rule);
+    color:var(--ink-faint); font-size:12px; text-align:center; line-height:1.8;
+  }
+
+  .card{animation:rise .45s cubic-bezier(.2,.7,.3,1) both}
+  @keyframes rise{from{opacity:0; transform:translateY(7px)} to{opacity:1; transform:none}}
+  @media (prefers-reduced-motion:reduce){
+    .card{animation:none}
+    .go{transition:none}
+  }
 </style>
 </head>
 <body>
 
-<h1>부평·남동 1.5룸+ 월세</h1>
-<p class="updated" id="updated">아직 갱신 전</p>
+<div class="dancheong"></div>
+<header>
+  <div class="crest"><span class="myeongjo">寶</span></div>
+  <h1 class="myeongjo">여왕 폐하의 간택 목록</h1>
+  <p class="sub">부평 · 남동권 1.5룸 이상 월세 &nbsp;·&nbsp; 보증금 높은 순</p>
+  <div class="updated" id="updated">아직 갱신 전</div>
+</header>
+<div class="dancheong"></div>
 
-<div class="chips">
-  <span class="chip">월세</span>
-  <span class="chip">보증금 200~2000만</span>
-  <span class="chip">월세 60만 이하</span>
-  <span class="chip">1.5룸 이상</span>
-  <span class="chip">오픈형 원룸 제외</span>
-  <span class="chip">단기 제외</span>
-  <span class="chip">주거용(공동·단독)만</span>
-  <span class="chip">보증금 높은 순</span>
+<div class="wrap">
+  <div class="stats" id="stats"></div>
+  <div class="edict" id="note"></div>
+  <div id="sections"></div>
+
+  <footer>
+    다방 공개 매물 자동 수집 · 건축물용도는 상세페이지 기준<br>
+    품계는 보증금 순위일 뿐이니, 최종 판단은 폐하께서 직접
+  </footer>
 </div>
-
-<div class="stats" id="stats"></div>
-<div class="note" id="note"></div>
-<div id="sections"></div>
-
-<footer>
-  다방 공개 매물 자동 수집 · 건축물용도는 상세페이지 기준<br>
-  최종 판단은 직접 확인할 것
-</footer>
 
 <!-- DATA:START -->
 <script>
@@ -514,75 +658,107 @@ window.DABANG = {
 (function(){
   var D = window.DABANG || {listings:[]};
   var LINES = [
-    {key:"1",   name:"1호선(경인선)",  short:"1호선",  desc:"부평"},
+    {key:"1",   name:"1호선 (경인선)", short:"1호선",  desc:"부평"},
     {key:"I1",  name:"인천1호선",      short:"인천1",  desc:"간석오거리"},
     {key:"I12", name:"인천1·2호선",    short:"인천1·2", desc:"인천시청 (환승)"},
     {key:"I2",  name:"인천2호선",      short:"인천2",  desc:"모래내시장 · 만수"}
   ];
+  var RANKS = ["정1품","종1품","정2품","종2품","정3품","종3품","정4품","종4품","정5품","종5품","정6품","종6품"];
+  var WARN = {"북향":1,"서향":1,"반지하":1,"1층":1,"꼭대기층":1};
   var list = D.listings || [];
 
+  function esc(s){
+    return String(s).replace(/[&<>"]/g, function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];
+    });
+  }
+  function links(arr){
+    return arr.map(function(n){
+      return '<a href="https://www.dabangapp.com/room/'+esc(n.id)+'" target="_blank" rel="noopener">'+
+             esc(n.label)+'</a>';
+    }).join(' · ');
+  }
+
   document.getElementById('updated').textContent =
-    D.updated ? ('갱신 ' + D.updated) : '아직 갱신 전';
+    D.updated ? (D.updated + ' 어람') : '아직 갱신 전';
 
   var stats = document.getElementById('stats');
   LINES.forEach(function(L){
     var n = list.filter(function(x){return x.line===L.key;}).length;
     var d = document.createElement('div');
     d.className = 'stat';
-    d.innerHTML = '<b>'+n+'</b><span>'+(L.short||L.name.replace(/\(.*\)/,''))+'</span>';
+    d.innerHTML = '<b>'+n+'</b><span>'+esc(L.short)+'</span>';
     stats.appendChild(d);
   });
 
-  var note = document.getElementById('note');
   var html = '';
   if ((D.halfRooms||[]).length){
-    html += '<p><b>1.5룸(분리형 원룸)</b> — 리스트엔 그냥 ‘원룸’으로 떠서 상세를 열어야 구분되는 구조다. 이번에 확인된 ' +
-      D.halfRooms.length + '건: ' +
-      D.halfRooms.map(function(n){
-        return '<a href="https://www.dabangapp.com/room/'+n.id+'" target="_blank" rel="noopener">'+
-               n.label+'</a>';
-      }).join(' · ') + '</p>';
+    html += '<p><b>1.5룸(분리형)</b> — 다방 목록엔 그냥 ‘원룸’으로 떠서 상세를 열어야 갈리는 구조다. ' +
+            '이번에 가려낸 '+D.halfRooms.length+'건: ' + links(D.halfRooms) + '</p>';
   }
   if ((D.newBuilds||[]).length){
-    html += '<p><b>신축(2020년+ 주거용)</b> — 보증금이 낮아 아래 목록 하단에 묻히니 여기 따로: ' +
-      D.newBuilds.map(function(n){
-        return '<a href="https://www.dabangapp.com/room/'+n.id+'" target="_blank" rel="noopener">'+
-               n.label+'</a>';
-      }).join(' · ') + '</p>';
+    html += '<p><b>신축(2020년+)</b> — 보증금이 낮아 아래에 묻히니 여기 따로: ' + links(D.newBuilds) + '</p>';
   }
-  html += '<p><b>전입신고 주의</b> — 다방 리스트 표기와 무관하게 건축물용도가 근생/숙박/업무면 전입신고가 안 되는 경우가 대부분이다. 여기 실린 건 상세페이지에서 공동주택·단독주택으로 확인된 것만이다.</p>';
-  note.innerHTML = html;
+  html += '<p><b>전입신고 주의</b> — 다방 목록 표기와 무관하게 건축물용도가 근생·숙박·업무면 ' +
+          '전입신고가 안 되는 경우가 대부분이다. 여기 오른 건 상세에서 공동주택·단독주택으로 확인된 것만이다.</p>';
+  document.getElementById('note').innerHTML = html;
 
   var wrap = document.getElementById('sections');
   LINES.forEach(function(L){
     var rows = list.filter(function(x){return x.line===L.key;});
-    var h = document.createElement('h2');
+
+    var h = document.createElement('div');
+    h.className = 'plaque';
     h.setAttribute('data-line', L.key);
-    h.innerHTML = '<span class="bar"></span>'+L.name+' <small>'+L.desc+'</small>';
+    h.innerHTML = '<span class="bar"></span><h2 class="myeongjo">'+esc(L.name)+'</h2>'+
+                  '<small>'+esc(L.desc)+'</small>';
     wrap.appendChild(h);
+
     if (!rows.length){
       var e = document.createElement('div');
       e.className = 'empty';
-      e.textContent = D.updated ? '조건에 맞는 주거용 매물 없음' : '루틴 첫 실행 시 채워짐';
+      e.textContent = D.updated ? '이 노선엔 간택할 만한 주거용 매물이 없사옵니다' : '루틴 첫 실행 시 채워짐';
       wrap.appendChild(e);
       return;
     }
-    rows.forEach(function(r){
-      var c = document.createElement('div');
+
+    var box = document.createElement('div');
+    box.className = 'cards';
+    rows.forEach(function(r, i){
+      var c = document.createElement('article');
       c.className = 'card';
-      var meta = [r.rtype, r.use, r.appr ? r.appr+' 사용승인' : '', r.dir ? r.dir+'향' : '', r.floor]
-                 .filter(Boolean).join(' · ');
-      if (r.maint) meta += ' · 관리비 ' + r.maint;
+      c.style.animationDelay = Math.min(i,7)*45 + 'ms';
+
+      var spec = [
+        ['구조', r.rtype, true],
+        ['용도', r.use, false],
+        ['사용승인', r.appr, false],
+        ['방향', r.dir ? r.dir+'향' : '', false],
+        ['층', r.floor, false],
+        ['관리비', r.maint, false]
+      ].filter(function(x){return x[1];}).map(function(x){
+        return '<div><dt>'+esc(x[0])+'</dt><dd'+(x[2]?' class="strong"':'')+'>'+esc(x[1])+'</dd></div>';
+      }).join('');
+
+      var tags = (r.tags||[]).map(function(t){
+        var cls = t==='NEW' ? 'good' : (WARN[t] ? 'warn' : '');
+        return '<span class="tag '+cls+'">'+esc(t==='NEW'?'신규':t)+'</span>';
+      }).join('');
+
       c.innerHTML =
-        '<div class="top"><span class="st">'+r.station+'</span>'+
-        '<span class="price">'+r.dep+'/'+r.rent+' <em>만원</em></span></div>'+
-        '<div class="meta">'+meta+'</div>'+
-        ((r.tags||[]).length ? '<div class="tags">'+r.tags.map(function(t){
-            return '<span class="tag'+(t==='NEW'?' new':'')+'">'+t+'</span>';
-          }).join('')+'</div>' : '')+
-        '<a class="go" href="https://www.dabangapp.com/room/'+r.id+'" target="_blank" rel="noopener">다방에서 보기</a>';
-      wrap.appendChild(c);
+        '<div class="rank myeongjo">'+esc(RANKS[i]||('제'+(i+1)+'위'))+'</div>'+
+        '<div class="head">'+
+          '<span class="seal myeongjo">'+esc(r.station)+'</span>'+
+          '<span class="price myeongjo">'+esc(r.dep)+'<span class="slash">/</span>'+esc(r.rent)+
+          '<em>만원</em></span>'+
+        '</div>'+
+        '<dl class="spec">'+spec+'</dl>'+
+        '<div class="tags">'+tags+'</div>'+
+        '<a class="go myeongjo" href="https://www.dabangapp.com/room/'+esc(r.id)+'" '+
+          'target="_blank" rel="noopener">다방에서 보기</a>';
+      box.appendChild(c);
     });
+    wrap.appendChild(box);
   });
 })();
 </script>
