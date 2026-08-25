@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>부평권 월세 매물</title>
+<meta name="description" content="1호선·7호선·인천1호선 부평권 월세 매물 (보증금 높은 순)">
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#ffffff; --fg:#16181d; --muted:#666c76; --line:#e4e7ec;
+    --accent:#2f6fed; --accent-soft:#eaf0fe; --warn:#b45309; --warn-soft:#fef3c7;
+    --tag:#eef1f5; --tag-fg:#4b5563; --new:#0f9d58; --new-soft:#e3f5ea;
+    --l1:#0052a4; --l7:#747f00; --li1:#7ca8d9;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#14161a; --card:#1c1f25; --fg:#e9ecf1; --muted:#9aa2ad; --line:#2c313a;
+      --accent:#7aa2f7; --accent-soft:#22304d; --warn:#fbbf24; --warn-soft:#3a2f14;
+      --tag:#262b33; --tag-fg:#b6bdc7; --new:#4ade80; --new-soft:#173523;
+      --l1:#4d90d8; --l7:#b6c33a; --li1:#9dc4ef;
+    }
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;overflow-x:hidden}
+  body{
+    background:var(--bg); color:var(--fg);
+    font:400 16px/1.55 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Segoe UI",sans-serif;
+    -webkit-text-size-adjust:100%;
+    padding:16px 14px calc(40px + env(safe-area-inset-bottom));
+    max-width:720px; margin:0 auto;
+  }
+  h1{font-size:22px; margin:0 0 4px; letter-spacing:-.02em}
+  .updated{color:var(--muted); font-size:15px; margin:0 0 14px}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin:0 0 14px}
+  .chip{background:var(--tag); color:var(--tag-fg); border-radius:999px; padding:5px 11px; font-size:14px; white-space:nowrap}
+  .stats{display:flex; gap:8px; margin:0 0 14px}
+  .stat{flex:1; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 8px; text-align:center}
+  .stat b{display:block; font-size:21px; line-height:1.2}
+  .stat span{font-size:13px; color:var(--muted)}
+  .note{background:var(--warn-soft); border:1px solid var(--line); border-left:4px solid var(--warn);
+        border-radius:10px; padding:12px 13px; margin:0 0 20px; font-size:15px}
+  .note p{margin:0 0 8px} .note p:last-child{margin:0}
+  .note a{color:var(--accent)}
+  h2{font-size:18px; margin:24px 0 10px; display:flex; align-items:center; gap:8px}
+  h2 .bar{width:4px; height:18px; border-radius:2px; background:var(--muted)}
+  h2[data-line="1"] .bar{background:var(--l1)}
+  h2[data-line="7"] .bar{background:var(--l7)}
+  h2[data-line="I1"] .bar{background:var(--li1)}
+  h2 small{color:var(--muted); font-weight:400; font-size:14px}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px; margin:0 0 10px}
+  .card .top{display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; margin-bottom:6px}
+  .st{background:var(--accent-soft); color:var(--accent); border-radius:6px; padding:3px 8px; font-size:14px; font-weight:600; white-space:nowrap}
+  .price{font-size:20px; font-weight:700; letter-spacing:-.02em}
+  .price em{font-style:normal; color:var(--muted); font-size:15px; font-weight:400}
+  .meta{color:var(--muted); font-size:15px; margin:2px 0 8px; word-break:keep-all}
+  .tags{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px}
+  .tag{background:var(--tag); color:var(--tag-fg); border-radius:6px; padding:3px 8px; font-size:13px}
+  .tag.new{background:var(--new-soft); color:var(--new); font-weight:600}
+  .go{display:inline-block; background:var(--accent); color:#fff; text-decoration:none;
+      border-radius:9px; padding:9px 14px; font-size:15px; font-weight:600}
+  .empty{background:var(--card); border:1px dashed var(--line); border-radius:14px;
+         padding:28px 16px; text-align:center; color:var(--muted); font-size:15px}
+  footer{margin-top:28px; color:var(--muted); font-size:13px; text-align:center; line-height:1.7}
+</style>
+</head>
+<body>
+
+<h1>부평권 월세 매물</h1>
+<p class="updated" id="updated">아직 갱신 전</p>
+
+<div class="chips">
+  <span class="chip">월세</span>
+  <span class="chip">보증금 200~2000만</span>
+  <span class="chip">월세 60만 이하</span>
+  <span class="chip">단기 제외</span>
+  <span class="chip">주거용(공동·단독)만</span>
+  <span class="chip">보증금 높은 순</span>
+</div>
+
+<div class="stats" id="stats"></div>
+<div class="note" id="note"></div>
+<div id="sections"></div>
+
+<footer>
+  다방 공개 매물 자동 수집 · 건축물용도는 상세페이지 기준<br>
+  최종 판단은 직접 확인할 것
+</footer>
+
+<!-- DATA:START -->
+<script>
+window.DABANG = {
+  updated: "",
+  newBuilds: [],
+  listings: []
+};
+</script>
+<!-- DATA:END -->
+
+<script>
+(function(){
+  var D = window.DABANG || {listings:[]};
+  var LINES = [
+    {key:"1",  name:"1호선(경인선)", desc:"부평 · 백운 · 동암 · 주안"},
+    {key:"7",  name:"7호선",         desc:"석남 · 산곡 · 부평구청 · 굴포천"},
+    {key:"I1", name:"인천1호선",     desc:"인천시청 · 간석오거리 · 부평삼거리 · 동수"}
+  ];
+  var list = D.listings || [];
+
+  document.getElementById('updated').textContent =
+    D.updated ? ('갱신 ' + D.updated) : '아직 갱신 전';
+
+  var stats = document.getElementById('stats');
+  LINES.forEach(function(L){
+    var n = list.filter(function(x){return x.line===L.key;}).length;
+    var d = document.createElement('div');
+    d.className = 'stat';
+    d.innerHTML = '<b>'+n+'</b><span>'+L.name.replace(/\(.*\)/,'')+'</span>';
+    stats.appendChild(d);
+  });
+
+  var note = document.getElementById('note');
+  var html = '';
+  if ((D.newBuilds||[]).length){
+    html += '<p><b>신축(2020년+ 주거용)</b> — 보증금이 낮아 아래 목록 하단에 묻히니 여기 따로: ' +
+      D.newBuilds.map(function(n){
+        return '<a href="https://www.dabangapp.com/room/'+n.id+'" target="_blank" rel="noopener">'+
+               n.label+'</a>';
+      }).join(' · ') + '</p>';
+  }
+  html += '<p><b>전입신고 주의</b> — 리스트에 \u2018원룸\u2019으로 떠도 건축물용도가 근생/숙박/업무면 전입신고가 안 되는 경우가 대부분이다. 여기 실린 건 상세페이지에서 공동주택·단독주택으로 확인된 것만이다.</p>';
+  note.innerHTML = html;
+
+  var wrap = document.getElementById('sections');
+  LINES.forEach(function(L){
+    var rows = list.filter(function(x){return x.line===L.key;});
+    var h = document.createElement('h2');
+    h.setAttribute('data-line', L.key);
+    h.innerHTML = '<span class="bar"></span>'+L.name+' <small>'+L.desc+'</small>';
+    wrap.appendChild(h);
+    if (!rows.length){
+      var e = document.createElement('div');
+      e.className = 'empty';
+      e.textContent = D.updated ? '조건에 맞는 주거용 매물 없음' : '루틴 첫 실행 시 채워짐';
+      wrap.appendChild(e);
+      return;
+    }
+    rows.forEach(function(r){
+      var c = document.createElement('div');
+      c.className = 'card';
+      var meta = [r.rtype, r.use, r.appr ? r.appr+' 사용승인' : '', r.dir ? r.dir+'향' : '', r.floor]
+                 .filter(Boolean).join(' · ');
+      if (r.maint) meta += ' · 관리비 ' + r.maint;
+      c.innerHTML =
+        '<div class="top"><span class="st">'+r.station+'</span>'+
+        '<span class="price">'+r.dep+'/'+r.rent+' <em>만원</em></span></div>'+
+        '<div class="meta">'+meta+'</div>'+
+        ((r.tags||[]).length ? '<div class="tags">'+r.tags.map(function(t){
+            return '<span class="tag'+(t==='NEW'?' new':'')+'">'+t+'</span>';
+          }).join('')+'</div>' : '')+
+        '<a class="go" href="https://www.dabangapp.com/room/'+r.id+'" target="_blank" rel="noopener">다방에서 보기</a>';
+      wrap.appendChild(c);
+    });
+  });
+})();
+</script>
+</body>
+</html>
