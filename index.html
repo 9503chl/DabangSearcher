@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>부평·남동 투룸 월세</title>
-<meta name="description" content="1호선·인천1호선·인천2호선 부평·남동권 투룸 이상 월세 (보증금 높은 순)">
+<title>부평·남동 1.5룸+ 월세</title>
+<meta name="description" content="1호선·인천1호선·인천2호선 부평·남동권 1.5룸 이상 월세 (보증금 높은 순)">
 <style>
   :root{
     --bg:#f6f7f9; --card:#ffffff; --fg:#16181d; --muted:#666c76; --line:#e4e7ec;
@@ -67,14 +67,15 @@
 </head>
 <body>
 
-<h1>부평·남동 투룸 월세</h1>
+<h1>부평·남동 1.5룸+ 월세</h1>
 <p class="updated" id="updated">아직 갱신 전</p>
 
 <div class="chips">
   <span class="chip">월세</span>
   <span class="chip">보증금 200~2000만</span>
   <span class="chip">월세 60만 이하</span>
-  <span class="chip">투룸 이상</span>
+  <span class="chip">1.5룸 이상</span>
+  <span class="chip">오픈형 원룸 제외</span>
   <span class="chip">단기 제외</span>
   <span class="chip">주거용(공동·단독)만</span>
   <span class="chip">보증금 높은 순</span>
@@ -93,7 +94,34 @@
 <script>
 window.DABANG = {
   "updated": "2026-08-25",
-  "newBuilds": [],
+  "halfRooms": [
+    {
+      "id": "6a7a873086144654abf36b18",
+      "label": "부평 500/50"
+    },
+    {
+      "id": "6a8d287f25b4c837e29eb405",
+      "label": "부평 300/55"
+    },
+    {
+      "id": "6a896c20ba99612a24d96676",
+      "label": "간석오거리 200/29"
+    },
+    {
+      "id": "6a73e2ae977cbe3fd5fc36aa",
+      "label": "인천시청 300/20"
+    },
+    {
+      "id": "6a8bdd9e3a4b3e6a425c96c6",
+      "label": "만수 300/45"
+    }
+  ],
+  "newBuilds": [
+    {
+      "id": "6a8bdd9e3a4b3e6a425c96c6",
+      "label": "만수 300/45 1.5룸 (2020)"
+    }
+  ],
   "listings": [
     {
       "id": "6a8557329149d322ba184c40",
@@ -228,6 +256,36 @@ window.DABANG = {
       ]
     },
     {
+      "id": "6a7a873086144654abf36b18",
+      "line": "1",
+      "station": "부평",
+      "dep": 500,
+      "rent": 50,
+      "rtype": "1.5룸(분리형)",
+      "use": "단독주택",
+      "appr": "2003.07.16",
+      "dir": "남",
+      "floor": "2층 / 4층",
+      "maint": "5만원",
+      "tags": []
+    },
+    {
+      "id": "6a8d287f25b4c837e29eb405",
+      "line": "1",
+      "station": "부평",
+      "dep": 300,
+      "rent": 55,
+      "rtype": "1.5룸(분리형)",
+      "use": "단독주택",
+      "appr": "2001.02.01",
+      "dir": "남",
+      "floor": "4층 / 4층",
+      "maint": "6만원",
+      "tags": [
+        "꼭대기층"
+      ]
+    },
+    {
       "id": "6a7186a52669ce3d8ad73c7a",
       "line": "I1",
       "station": "간석오거리",
@@ -261,6 +319,38 @@ window.DABANG = {
         "NEW",
         "서향",
         "꼭대기층"
+      ]
+    },
+    {
+      "id": "6a896c20ba99612a24d96676",
+      "line": "I1",
+      "station": "간석오거리",
+      "dep": 200,
+      "rent": 29,
+      "rtype": "1.5룸(분리형)",
+      "use": "단독주택",
+      "appr": "1988.07.26",
+      "dir": "남",
+      "floor": "1층 / 2층",
+      "maint": "6만원",
+      "tags": [
+        "1층"
+      ]
+    },
+    {
+      "id": "6a73e2ae977cbe3fd5fc36aa",
+      "line": "I12",
+      "station": "인천시청",
+      "dep": 300,
+      "rent": 20,
+      "rtype": "1.5룸(분리형)",
+      "use": "단독주택",
+      "appr": "2000.03.16",
+      "dir": "남",
+      "floor": "2층 / 4층",
+      "maint": "5만원",
+      "tags": [
+        "NEW"
       ]
     },
     {
@@ -398,6 +488,22 @@ window.DABANG = {
         "NEW",
         "1층"
       ]
+    },
+    {
+      "id": "6a8bdd9e3a4b3e6a425c96c6",
+      "line": "I2",
+      "station": "만수",
+      "dep": 300,
+      "rent": 45,
+      "rtype": "1.5룸(분리형)",
+      "use": "단독주택",
+      "appr": "2020.01.10",
+      "dir": "남",
+      "floor": "3층 / 5층",
+      "maint": "10만원",
+      "tags": [
+        "NEW"
+      ]
     }
   ]
 };
@@ -429,6 +535,14 @@ window.DABANG = {
 
   var note = document.getElementById('note');
   var html = '';
+  if ((D.halfRooms||[]).length){
+    html += '<p><b>1.5룸(분리형 원룸)</b> — 리스트엔 그냥 ‘원룸’으로 떠서 상세를 열어야 구분되는 구조다. 이번에 확인된 ' +
+      D.halfRooms.length + '건: ' +
+      D.halfRooms.map(function(n){
+        return '<a href="https://www.dabangapp.com/room/'+n.id+'" target="_blank" rel="noopener">'+
+               n.label+'</a>';
+      }).join(' · ') + '</p>';
+  }
   if ((D.newBuilds||[]).length){
     html += '<p><b>신축(2020년+ 주거용)</b> — 보증금이 낮아 아래 목록 하단에 묻히니 여기 따로: ' +
       D.newBuilds.map(function(n){
