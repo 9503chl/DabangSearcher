@@ -3,21 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>부평권 월세 매물</title>
-<meta name="description" content="1호선·7호선·인천1호선 부평권 월세 매물 (보증금 높은 순)">
+<title>부평·남동 투룸 월세</title>
+<meta name="description" content="1호선·인천1호선·인천2호선 부평·남동권 투룸 이상 월세 (보증금 높은 순)">
 <style>
   :root{
     --bg:#f6f7f9; --card:#ffffff; --fg:#16181d; --muted:#666c76; --line:#e4e7ec;
     --accent:#2f6fed; --accent-soft:#eaf0fe; --warn:#b45309; --warn-soft:#fef3c7;
     --tag:#eef1f5; --tag-fg:#4b5563; --new:#0f9d58; --new-soft:#e3f5ea;
-    --l1:#0052a4; --l7:#747f00; --li1:#7ca8d9;
+    --l1:#0052a4; --l7:#747f00; --li1:#7ca8d9; --li2:#e08600;
   }
   @media (prefers-color-scheme: dark){
     :root{
       --bg:#14161a; --card:#1c1f25; --fg:#e9ecf1; --muted:#9aa2ad; --line:#2c313a;
       --accent:#7aa2f7; --accent-soft:#22304d; --warn:#fbbf24; --warn-soft:#3a2f14;
       --tag:#262b33; --tag-fg:#b6bdc7; --new:#4ade80; --new-soft:#173523;
-      --l1:#4d90d8; --l7:#b6c33a; --li1:#9dc4ef;
+      --l1:#4d90d8; --l7:#b6c33a; --li1:#9dc4ef; --li2:#f7b750;
     }
   }
   *{box-sizing:border-box}
@@ -46,6 +46,7 @@
   h2[data-line="1"] .bar{background:var(--l1)}
   h2[data-line="7"] .bar{background:var(--l7)}
   h2[data-line="I1"] .bar{background:var(--li1)}
+  h2[data-line="I2"] .bar{background:var(--li2)}
   h2 small{color:var(--muted); font-weight:400; font-size:14px}
   .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px; margin:0 0 10px}
   .card .top{display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; margin-bottom:6px}
@@ -65,13 +66,14 @@
 </head>
 <body>
 
-<h1>부평권 월세 매물</h1>
+<h1>부평·남동 투룸 월세</h1>
 <p class="updated" id="updated">아직 갱신 전</p>
 
 <div class="chips">
   <span class="chip">월세</span>
   <span class="chip">보증금 200~2000만</span>
   <span class="chip">월세 60만 이하</span>
+  <span class="chip">투룸 이상</span>
   <span class="chip">단기 제외</span>
   <span class="chip">주거용(공동·단독)만</span>
   <span class="chip">보증금 높은 순</span>
@@ -90,116 +92,8 @@
 <script>
 window.DABANG = {
   "updated": "2026-08-25",
-  "newBuilds": [
-    {
-      "id": "6a7be8b67f6ab22834ab75f4",
-      "label": "동암 200/30 (2020)"
-    },
-    {
-      "id": "6a6fdf0839ef2579a24c58ed",
-      "label": "동암 200/28 (2020)"
-    }
-  ],
+  "newBuilds": [],
   "listings": [
-    {
-      "id": "6a7d6ef1e958cd2ad16e0c49",
-      "line": "1",
-      "station": "부평",
-      "dep": 2000,
-      "rent": 28,
-      "rtype": "원룸",
-      "use": "공동주택",
-      "appr": "2013.09.13",
-      "dir": "남",
-      "floor": "14층 / 15층",
-      "maint": "8만원",
-      "tags": [
-        "NEW"
-      ]
-    },
-    {
-      "id": "6a7ab8ba9329d3201c652b83",
-      "line": "1",
-      "station": "부평",
-      "dep": 2000,
-      "rent": 28,
-      "rtype": "아파트",
-      "use": "공동주택",
-      "appr": "2013.09.13",
-      "dir": "서",
-      "floor": "14층 / 15층",
-      "maint": "8만원",
-      "tags": [
-        "NEW",
-        "서향"
-      ]
-    },
-    {
-      "id": "6a7bbeb7ed06d5768af7c09b",
-      "line": "1",
-      "station": "부평",
-      "dep": 2000,
-      "rent": 28,
-      "rtype": "아파트",
-      "use": "공동주택",
-      "appr": "2013.09.13",
-      "dir": "남서",
-      "floor": "14층 / 15층",
-      "maint": "8만원",
-      "tags": [
-        "NEW",
-        "서향"
-      ]
-    },
-    {
-      "id": "6a69652937255c78f5c74f5c",
-      "line": "1",
-      "station": "부평",
-      "dep": 2000,
-      "rent": 30,
-      "rtype": "원룸",
-      "use": "공동주택",
-      "appr": "2014.01.27",
-      "dir": "북서",
-      "floor": "중층 / 10층",
-      "maint": "7만원",
-      "tags": [
-        "NEW",
-        "북향"
-      ]
-    },
-    {
-      "id": "6a77d0da04332851f866bfdd",
-      "line": "1",
-      "station": "주안",
-      "dep": 1000,
-      "rent": 33,
-      "rtype": "원룸",
-      "use": "공동주택",
-      "appr": "2002.09.24",
-      "dir": "동",
-      "floor": "3층 / 8층",
-      "maint": "6만원",
-      "tags": [
-        "NEW"
-      ]
-    },
-    {
-      "id": "6a425c51f1c5f34ea515417f",
-      "line": "1",
-      "station": "주안",
-      "dep": 1000,
-      "rent": 46,
-      "rtype": "원룸",
-      "use": "공동주택",
-      "appr": "2006.09.29",
-      "dir": "남동",
-      "floor": "2층 / 15층",
-      "maint": "6만원",
-      "tags": [
-        "NEW"
-      ]
-    },
     {
       "id": "6a8557329149d322ba184c40",
       "line": "1",
@@ -213,7 +107,6 @@ window.DABANG = {
       "floor": "4층 / 5층",
       "maint": "없음",
       "tags": [
-        "NEW",
         "북향"
       ]
     },
@@ -230,252 +123,139 @@ window.DABANG = {
       "floor": "4층 / 5층",
       "maint": "1만원",
       "tags": [
-        "NEW",
         "서향"
       ]
     },
     {
-      "id": "6a7a7977be79651a7d90b96b",
-      "line": "7",
-      "station": "부평구청",
+      "id": "6a8d43030ef6962bb4bf8be3",
+      "line": "1",
+      "station": "부평",
       "dep": 1000,
-      "rent": 47,
+      "rent": 55,
+      "rtype": "쓰리룸 이상",
+      "use": "공동주택",
+      "appr": "1990.12.05",
+      "dir": "북",
+      "floor": "3층 / 3층",
+      "maint": "1만원",
+      "tags": [
+        "북향",
+        "꼭대기층"
+      ]
+    },
+    {
+      "id": "6a87f56c3f23a52de2ad49a8",
+      "line": "1",
+      "station": "부평",
+      "dep": 1000,
+      "rent": 60,
       "rtype": "투룸",
-      "use": "단독주택",
-      "appr": "1989.12.11",
-      "dir": "서",
-      "floor": "반지층 / 3층",
-      "maint": "3만원",
+      "use": "공동주택",
+      "appr": "2001.06.19",
+      "dir": "동",
+      "floor": "4층 / 4층",
+      "maint": "1만원",
       "tags": [
         "NEW",
-        "서향",
+        "꼭대기층"
+      ]
+    },
+    {
+      "id": "6a8927f6bd4f6c16e656ca39",
+      "line": "1",
+      "station": "부평",
+      "dep": 500,
+      "rent": 45,
+      "rtype": "투룸",
+      "use": "공동주택",
+      "appr": "2001.12.11",
+      "dir": "북",
+      "floor": "고층 / 4층",
+      "maint": "1만원",
+      "tags": [
+        "NEW",
+        "북향"
+      ]
+    },
+    {
+      "id": "6a757a227c58bc4824153e03",
+      "line": "1",
+      "station": "부평",
+      "dep": 500,
+      "rent": 50,
+      "rtype": "투룸",
+      "use": "공동주택",
+      "appr": "2001.12.15",
+      "dir": "남",
+      "floor": "5층 / 5층",
+      "maint": "1만원",
+      "tags": [
+        "NEW",
+        "꼭대기층"
+      ]
+    },
+    {
+      "id": "6a72f5a8e80a5345afdc0c3d",
+      "line": "1",
+      "station": "부평",
+      "dep": 500,
+      "rent": 50,
+      "rtype": "투룸",
+      "use": "공동주택",
+      "appr": "2003.01.13",
+      "dir": "남",
+      "floor": "4층 / 6층",
+      "maint": "1만원",
+      "tags": [
+        "NEW"
+      ]
+    },
+    {
+      "id": "6a700b9917d9d811644cceba",
+      "line": "1",
+      "station": "부평",
+      "dep": 500,
+      "rent": 50,
+      "rtype": "투룸",
+      "use": "공동주택",
+      "appr": "2003.05.10",
+      "dir": "남",
+      "floor": "4층 / 5층",
+      "maint": "1만원",
+      "tags": [
+        "NEW"
+      ]
+    },
+    {
+      "id": "6a7186a52669ce3d8ad73c7a",
+      "line": "I1",
+      "station": "간석오거리",
+      "dep": 300,
+      "rent": 30,
+      "rtype": "투룸",
+      "use": "공동주택",
+      "appr": "1997.08.29",
+      "dir": "북",
+      "floor": "반지층 / 4층",
+      "maint": "없음",
+      "tags": [
+        "NEW",
+        "북향",
         "반지하"
       ]
     },
     {
-      "id": "6a66d80ffe96266fdd434e46",
-      "line": "7",
-      "station": "산곡",
-      "dep": 1000,
-      "rent": 50,
-      "rtype": "투룸",
-      "use": "공동주택",
-      "appr": "2002.05.01",
-      "dir": "동",
-      "floor": "3층 / 5층",
-      "maint": "2만원",
-      "tags": [
-        "NEW"
-      ]
-    },
-    {
-      "id": "6a67615db0e19552061d4279",
-      "line": "7",
-      "station": "부평구청",
-      "dep": 1000,
-      "rent": 50,
-      "rtype": "투룸",
-      "use": "단독주택",
-      "appr": "1993.11.23",
-      "dir": "동",
-      "floor": "3층 / 4층",
-      "maint": "없음",
-      "tags": [
-        "NEW"
-      ]
-    },
-    {
-      "id": "6a8d113e96b3975d2de07dc6",
-      "line": "7",
-      "station": "부평구청",
-      "dep": 1000,
-      "rent": 50,
-      "rtype": "투룸",
-      "use": "단독주택",
-      "appr": "1992.04.10",
-      "dir": "남",
-      "floor": "1층 / 3층",
-      "maint": "2만원",
-      "tags": [
-        "NEW",
-        "1층"
-      ]
-    },
-    {
-      "id": "6a77d54e077a1e602526249c",
-      "line": "7",
-      "station": "부평구청",
-      "dep": 1000,
-      "rent": 50,
-      "rtype": "투룸",
-      "use": "단독주택",
-      "appr": "1992.10.06",
-      "dir": "동",
-      "floor": "3층 / 4층",
-      "maint": "2만5000원",
-      "tags": [
-        "NEW"
-      ]
-    },
-    {
-      "id": "69cf4c326ace095592b8af02",
-      "line": "7",
-      "station": "석남",
-      "dep": 1000,
-      "rent": 55,
-      "rtype": "쓰리룸 이상",
-      "use": "단독주택",
-      "appr": "1981.04.07",
-      "dir": "남",
-      "floor": "2층 / 2층",
-      "maint": "없음",
-      "tags": [
-        "NEW",
-        "꼭대기층"
-      ]
-    },
-    {
-      "id": "6a4218bd25661707a9f078ff",
-      "line": "7",
-      "station": "부평구청",
-      "dep": 1000,
-      "rent": 55,
-      "rtype": "원룸",
-      "use": "공동주택",
-      "appr": "2019.01.04",
-      "dir": "동",
-      "floor": "3층 / 5층",
-      "maint": "8만원",
-      "tags": [
-        "NEW"
-      ]
-    },
-    {
-      "id": "6a8bfb6595ec54092cac127c",
-      "line": "7",
-      "station": "굴포천",
-      "dep": 1000,
-      "rent": 60,
-      "rtype": "쓰리룸 이상",
-      "use": "공동주택",
-      "appr": "1994.04.26",
-      "dir": "서",
-      "floor": "3층 / 4층",
-      "maint": "1만원",
-      "tags": [
-        "NEW",
-        "서향"
-      ]
-    },
-    {
-      "id": "6a7fe35446b2823a7c0fda35",
+      "id": "6a5da654f0abfc55cc1e75c3",
       "line": "I1",
-      "station": "인천시청",
-      "dep": 2000,
-      "rent": 22,
-      "rtype": "아파트",
-      "use": "공동주택",
-      "appr": "2012.07.01",
-      "dir": "동",
-      "floor": "고층 / 15층",
-      "maint": "5만원",
-      "tags": [
-        "NEW"
-      ]
-    },
-    {
-      "id": "6a72f0d2cb21f3410d5d44b0",
-      "line": "I1",
-      "station": "동수",
-      "dep": 2000,
+      "station": "간석오거리",
+      "dep": 300,
       "rent": 30,
-      "rtype": "원룸",
+      "rtype": "투룸",
       "use": "공동주택",
-      "appr": "2014.01.27",
-      "dir": "동",
-      "floor": "7층 / 10층",
-      "maint": "7만원",
-      "tags": [
-        "NEW"
-      ]
-    },
-    {
-      "id": "6a48bd2a56a97c0f676733b0",
-      "line": "I1",
-      "station": "인천시청",
-      "dep": 1000,
-      "rent": 38,
-      "rtype": "아파트",
-      "use": "공동주택",
-      "appr": "2011.12.30",
-      "dir": "남",
-      "floor": "고층 / 8층",
-      "maint": "10만원",
-      "tags": [
-        "NEW"
-      ]
-    },
-    {
-      "id": "6a840c29e899db7364bf2976",
-      "line": "I1",
-      "station": "동수",
-      "dep": 500,
-      "rent": 35,
-      "rtype": "원룸",
-      "use": "공동주택",
-      "appr": "2000.01.20",
+      "appr": "1995.01.23",
       "dir": "서",
-      "floor": "4층 / 5층",
-      "maint": "8만원",
-      "tags": [
-        "NEW",
-        "서향"
-      ]
-    },
-    {
-      "id": "6a8d130ac92a7d5fc872f9d4",
-      "line": "I1",
-      "station": "인천시청",
-      "dep": 500,
-      "rent": 40,
-      "rtype": "아파트",
-      "use": "공동주택",
-      "appr": "2014.07.03",
-      "dir": "남",
-      "floor": "고층 / 9층",
-      "maint": "10만원",
-      "tags": [
-        "NEW"
-      ]
-    },
-    {
-      "id": "69eb22cafecefa01c4322468",
-      "line": "I1",
-      "station": "동수",
-      "dep": 500,
-      "rent": 40,
-      "rtype": "원룸",
-      "use": "공동주택",
-      "appr": "2012.09.28",
-      "dir": "동",
-      "floor": "3층 / 12층",
-      "maint": "7만원",
-      "tags": [
-        "NEW"
-      ]
-    },
-    {
-      "id": "6a8bbe8a3ac2295410bed0fc",
-      "line": "I1",
-      "station": "인천시청",
-      "dep": 500,
-      "rent": 42,
-      "rtype": "아파트",
-      "use": "공동주택",
-      "appr": "2015.02.06",
-      "dir": "서",
-      "floor": "15층 / 15층",
-      "maint": "12만5000원",
+      "floor": "4층 / 4층",
+      "maint": "1만원",
       "tags": [
         "NEW",
         "서향",
@@ -483,19 +263,139 @@ window.DABANG = {
       ]
     },
     {
-      "id": "6a7d7d791d947d6dbd78b377",
-      "line": "I1",
-      "station": "인천시청",
-      "dep": 500,
-      "rent": 48,
+      "id": "6a6c3d3f693a5b62cff6fa60",
+      "line": "I2",
+      "station": "만수",
+      "dep": 1500,
+      "rent": 45,
       "rtype": "아파트",
       "use": "공동주택",
-      "appr": "2013.09.05",
-      "dir": "동",
-      "floor": "12층 / 18층",
-      "maint": "13만원",
+      "appr": "1985.10.31",
+      "dir": "남서",
+      "floor": "2층 / 5층",
+      "maint": "6만원",
+      "tags": [
+        "NEW",
+        "서향"
+      ]
+    },
+    {
+      "id": "6a68382b641c6640e6146364",
+      "line": "I2",
+      "station": "모래내시장",
+      "dep": 1000,
+      "rent": 45,
+      "rtype": "쓰리룸 이상",
+      "use": "공동주택",
+      "appr": "1995.11.25",
+      "dir": "남",
+      "floor": "4층 / 4층",
+      "maint": "없음",
+      "tags": [
+        "NEW",
+        "꼭대기층"
+      ]
+    },
+    {
+      "id": "6a795f3be9cacb231e6b5e05",
+      "line": "I2",
+      "station": "만수",
+      "dep": 1000,
+      "rent": 50,
+      "rtype": "아파트",
+      "use": "공동주택",
+      "appr": "1987.09.12",
+      "dir": "남서",
+      "floor": "1층 / 15층",
+      "maint": "10만원",
+      "tags": [
+        "NEW",
+        "서향",
+        "1층"
+      ]
+    },
+    {
+      "id": "6a321c00d4cb4644cd722c80",
+      "line": "I2",
+      "station": "만수",
+      "dep": 500,
+      "rent": 30,
+      "rtype": "투룸",
+      "use": "공동주택",
+      "appr": "1990.05.11",
+      "dir": "남",
+      "floor": "4층 / 5층",
+      "maint": "없음",
       "tags": [
         "NEW"
+      ]
+    },
+    {
+      "id": "6a7d78f91c434e5b34f176b5",
+      "line": "I2",
+      "station": "모래내시장",
+      "dep": 500,
+      "rent": 40,
+      "rtype": "투룸",
+      "use": "공동주택",
+      "appr": "1990.11.12",
+      "dir": "동",
+      "floor": "3층 / 3층",
+      "maint": "1만원",
+      "tags": [
+        "NEW",
+        "꼭대기층"
+      ]
+    },
+    {
+      "id": "6a76f1495761f544c76d0130",
+      "line": "I2",
+      "station": "만수",
+      "dep": 500,
+      "rent": 45,
+      "rtype": "투룸",
+      "use": "단독주택",
+      "appr": "1992.06.01",
+      "dir": "북동",
+      "floor": "2층 / 3층",
+      "maint": "없음",
+      "tags": [
+        "NEW",
+        "북향"
+      ]
+    },
+    {
+      "id": "6a74595e6dde5121d8628a28",
+      "line": "I2",
+      "station": "모래내시장",
+      "dep": 500,
+      "rent": 50,
+      "rtype": "투룸",
+      "use": "단독주택",
+      "appr": "1991.09.12",
+      "dir": "남",
+      "floor": "반지층 / 2층",
+      "maint": "1만원",
+      "tags": [
+        "NEW",
+        "반지하"
+      ]
+    },
+    {
+      "id": "6a7a8febf0dfb67d458c3311",
+      "line": "I2",
+      "station": "모래내시장",
+      "dep": 500,
+      "rent": 50,
+      "rtype": "투룸",
+      "use": "공동주택",
+      "appr": "1991.12.24",
+      "dir": "남",
+      "floor": "1층 / 3층",
+      "maint": "없음",
+      "tags": [
+        "NEW",
+        "1층"
       ]
     }
   ]
@@ -507,9 +407,9 @@ window.DABANG = {
 (function(){
   var D = window.DABANG || {listings:[]};
   var LINES = [
-    {key:"1",  name:"1호선(경인선)", desc:"부평 · 백운 · 동암 · 주안"},
-    {key:"7",  name:"7호선",         desc:"석남 · 산곡 · 부평구청 · 굴포천"},
-    {key:"I1", name:"인천1호선",     desc:"인천시청 · 간석오거리 · 부평삼거리 · 동수"}
+    {key:"1",  name:"1호선(경인선)", desc:"부평"},
+    {key:"I1", name:"인천1호선",     desc:"인천시청 · 간석오거리"},
+    {key:"I2", name:"인천2호선",     desc:"모래내시장 · 만수"}
   ];
   var list = D.listings || [];
 
