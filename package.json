@@ -1,0 +1,13 @@
+{
+  "name": "dabang-searcher",
+  "private": true,
+  "description": "다방 부평·남동권 월세 매물 수집 → GitHub Pages",
+  "scripts": {
+    "collect": "node tools/collect.js",
+    "collect:dry": "node tools/collect.js --dry",
+    "setup": "npm install && npx playwright install chromium"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.0"
+  }
+}

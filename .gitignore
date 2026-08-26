@@ -1,3 +1,5 @@
 .env.local
 dabang_*.html
 .verify/
+node_modules/
+.collect-dry/
