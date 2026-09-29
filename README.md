@@ -25,3 +25,12 @@
 Claude Code 스케줄 태스크 `dabang-bupyeong-monthly` 가 돌면서
 다방 내부 API로 수집 → `index.html` 데이터 블록 교체 → 커밋/푸시 → GitHub Pages 반영.
 로그인된 Chrome 세션이 필요해서 로컬에서만 동작한다.
+
+### 새 PC에 루틴 등록
+
+루틴 지시문 원본은 `tools/routine.md` 에 있다. 루틴은 PC별로 저장돼 동기화되지 않는다.
+
+- `git clone` → `npm install` → `npx playwright install chromium`
+- GitHub 푸시 인증 설정 (`gh auth login` 등)
+- 이 저장소 폴더에서 Claude Code 세션을 열고: "`tools/routine.md` 본문(frontmatter 제외)을 그대로 프롬프트로 써서 스케줄 태스크 `dabang-bupyeong-monthly` 를 매일 08:30(`30 8 * * *`)으로 등록해줘"
+- 수동 실행 1회로 확인한 뒤 옛 PC의 루틴은 끈다 (둘 다 켜두면 같은 날 두 번 커밋·푸시하다 충돌)
