@@ -18,19 +18,22 @@
 **건축물용도가 공동주택/단독주택인 것만**(리스트에 '원룸'이어도 상세페이지 용도로 판정) ·
 정렬은 보증금 내림차순(같으면 사용승인일 최신순).
 
-역: 1호선 부평·백운·동암·주안 / 7호선 석남·산곡·부평구청·굴포천 / 인천1호선 인천시청·간석오거리·부평삼거리·동수.
+역: 부평(1호선) / 간석오거리(인천1호선) / 인천시청(인천1·2호선 환승) / 모래내시장·만수(인천2호선).
 
 ## 갱신
 
-Claude Code 스케줄 태스크 `dabang-bupyeong-monthly` 가 돌면서
-다방 내부 API로 수집 → `index.html` 데이터 블록 교체 → 커밋/푸시 → GitHub Pages 반영.
-로그인된 Chrome 세션이 필요해서 로컬에서만 동작한다.
+Claude Code 스케줄 태스크 `dabang-bupyeong-monthly` 가 매일 `bash tools/routine.sh` 를 돌린다.
+origin 동기화 → Playwright 로 수집(`tools/collect.js`) → 검증 → 커밋/푸시 → GitHub Pages 반영.
+다방이 클라우드 샌드박스를 막아서 로컬에서만 동작한다.
+
+무인 실행이라 승인창이 뜨면 그대로 멈춘다. 그래서 세션은 Bash 로 이 스크립트 하나만 부르고,
+허용 규칙은 `.claude/settings.json` 에 둔다.
 
 ### 새 PC에 루틴 등록
 
 루틴 지시문 원본은 `tools/routine.md` 에 있다. 루틴은 PC별로 저장돼 동기화되지 않는다.
 
-- `git clone` → `npm install` → `npx playwright install chromium`
-- GitHub 푸시 인증 설정 (`gh auth login` 등)
+- `git clone git@github.com:9503chl/DabangSearcher.git` (SSH 키가 GitHub 에 등록돼 있으면 푸시 인증 끝)
+- `npm install` → `npx playwright install chromium`
 - 이 저장소 폴더에서 Claude Code 세션을 열고: "`tools/routine.md` 본문(frontmatter 제외)을 그대로 프롬프트로 써서 스케줄 태스크 `dabang-bupyeong-monthly` 를 매일 08:30(`30 8 * * *`)으로 등록해줘"
 - 수동 실행 1회로 확인한 뒤 옛 PC의 루틴은 끈다 (둘 다 켜두면 같은 날 두 번 커밋·푸시하다 충돌)
